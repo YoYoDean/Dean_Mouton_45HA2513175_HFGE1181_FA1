@@ -50,10 +50,12 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             anim.SetBool("isGrounded", true);
+            
         }
         else
         {
             anim.SetBool("isGrounded", false);
+            
         }
 
 

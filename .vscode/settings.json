@@ -60,11 +60,11 @@
         "*.asset": "yaml",
         "*.meta": "yaml",
         "*.prefab": "yaml",
-        "*.unity": "yaml",
+        "*.unity": "yaml"
     },
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
-        "*.sln": "*.csproj",
+        "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "HFGE1181-Platformer-Assessment-Exercise-FA-main.sln"
+    "dotnet.defaultSolution": "Dean_Mouton_45HA2513175_HFGE1181_FA1.sln"
 }
