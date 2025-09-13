@@ -38,7 +38,7 @@ public class GameMNGR : MonoBehaviour
     }
 
     public void SetHasKey(bool value)
-    {
+    {   
         hasKey = value;
     }
 
