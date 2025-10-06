@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 3341309940120607809}
   - component: {fileID: 3097980137332621599}
   - component: {fileID: 4455635929236694634}
-  - component: {fileID: 1251967335749037861}
   - component: {fileID: 916502758593927212}
+  - component: {fileID: 9220324681042520169}
   m_Layer: 0
-  m_Name: Enemy_Slime
+  m_Name: Enemy_Slime (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2880197896301746555}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.405888, y: 3.0858355, z: -0.042648666}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.06806, y: -0.84345, z: -0.042648666}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -57,6 +57,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,8 +80,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: -1399548233
+  m_SortingLayer: 3
   m_SortingOrder: 99
   m_Sprite: {fileID: 21300000, guid: 15dc4eb01dbeea343b3b8dfcdeb10bb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,7 +105,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: aae6963b2da75e94b862122761465264, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -151,25 +154,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1251967335749037861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2880197896301746555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6706e4cc566d20d4d93abe4114778fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCheck: {fileID: 4066575690274634278}
-  patrolIndex: 0
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  movementSpeed: 8
-  delay: 2
 --- !u!114 &916502758593927212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,9 +166,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01aa58efda25a445a49a862b27c2bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathMessages:
-  - You were drowned in slime
-  - You met a viscous demise
+--- !u!114 &9220324681042520169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2880197896301746555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa896573b37c95343b70a7a0c1df9aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  damage: 2
+  patrolIndex: 0
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  movementSpeed: 2
+  delay: 1
 --- !u!1 &8429901976413656517
 GameObject:
   m_ObjectHideFlags: 0

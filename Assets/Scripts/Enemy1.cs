@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using Unity.VisualScripting;
@@ -5,9 +6,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //public enum EnemyStateMachine {idle, patrol, chase}
-    //public EnemyStateMachine stateMachine;
-    public Transform targetCheck;
+
+    public int damage;
 
     public int patrolIndex = 0;
     public Transform[] patrolPoints;
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
   
     public IEnumerator Idle()
     {
-        //Debug.Log("Distance: " + Vector2.Distance(transform.position, patrolPoints[patrolIndex].position));
+        
         anim.SetBool("Idle", true);
         yield return new WaitForSeconds(delay);
         yield return StartCoroutine("Patrol");
@@ -71,14 +71,35 @@ public class Enemy : MonoBehaviour
             yield return StartCoroutine("Idle");
         }
         
-        /*
-        else
-        {
-            yield return StartCoroutine("Patrol");
-        }
-        */
-        
     }
 
-    
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            if (CameraShake.Instance != null)
+            {
+                CameraShake.Instance.Shake(.5f, .3f);
+            }
+
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            if (CameraShake.Instance != null)
+            {
+                CameraShake.Instance.Shake(.5f, .3f);
+            }
+
+            col.gameObject.GetComponent<HealthSystem>().Damage(damage);
+            HealthManager.Instance.CheckHealth();
+
+        }
+    }
+
+
 }

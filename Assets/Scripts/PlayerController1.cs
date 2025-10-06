@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
+    public float fallMultiplier = 2.5f;
+    public bool canDoubleJump = true;
     public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
     public LayerMask groundMask;
@@ -43,28 +45,30 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
-
-
+        
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundMask);
 
         if (isGrounded)
         {
             anim.SetBool("isGrounded", true);
-            
+            canDoubleJump = true;
         }
         else
         {
             anim.SetBool("isGrounded", false);
-            
         }
-
-
+       
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             anim.SetTrigger("Jump");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-
+        else if (Input.GetButtonDown("Jump") && canDoubleJump)
+        {
+            anim.SetTrigger("Jump");
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            canDoubleJump = false;
+        }
     }
 
     private void FixedUpdate()
@@ -77,6 +81,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             rb.linearVelocity = new Vector2( moveInputX * moveSpeed, rb.linearVelocity.y);
+        }
+
+        if (rb.linearVelocity.y < 0)
+        {
+            // Increase downward velocity to make fall snappier
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
     }
 
@@ -97,6 +107,5 @@ public class PlayerController : MonoBehaviour
         }
         onLadder = isPlayerOnLadder;
         rb.gravityScale = gravity;
-        //rb.constraints = RigidbodyConstraints2D.FreezePositionY;
     }
 }
