@@ -21,6 +21,11 @@ public class SceneMNGR : MonoBehaviour
       {
          LoadScene();
       }
+
+      if (Keyboard.current.rKey.wasPressedThisFrame)
+      {
+         SceneManager.LoadScene("Student Scene");
+      }
    }
 
    public void LoadScene()

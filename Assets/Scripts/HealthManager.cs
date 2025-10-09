@@ -8,6 +8,7 @@ public class HealthManager : MonoBehaviour
 
     private GameMNGR gameMNGR;
     private string sceneName;
+    public GameObject losescreen;
 
     private void Awake()
     {
@@ -38,8 +39,8 @@ public class HealthManager : MonoBehaviour
     {
         if (healthSystem.GetHearts() < 0)
         {
-            
-            SceneManager.LoadScene(sceneName);
+            losescreen.SetActive(true);
+           SceneManager.LoadScene(sceneName);
         }
         
     }

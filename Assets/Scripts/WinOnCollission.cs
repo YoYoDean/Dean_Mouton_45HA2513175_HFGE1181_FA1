@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class WinOnCollission : MonoBehaviour
 {
     private string sceneName;
+    private GameMNGR gameMNGR;
+    public GameObject winscreen;
     
 
     private void Start()
@@ -23,6 +25,8 @@ public class WinOnCollission : MonoBehaviour
 
         if (trig.gameObject.CompareTag("Player"))
         {
+            winscreen.SetActive(true);
+            
             SceneManager.LoadScene(sceneName);
             
         }

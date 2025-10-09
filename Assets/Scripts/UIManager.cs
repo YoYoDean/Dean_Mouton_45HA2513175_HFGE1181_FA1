@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 
 public class UIManager : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        playerScore = 0;
+        playerScore =  0;
         ResetScore();
         hudUI.SetActive(true);
         pauseUI.SetActive(false);
@@ -65,7 +66,7 @@ public class UIManager : MonoBehaviour
     public void AddScore(int scoreValue)
     {
         playerScore += scoreValue;
-        scoreText.text = playerScore.ToString();
+        scoreText.text = "Score: " + playerScore.ToString();
     }
 
     public void ResetScore()

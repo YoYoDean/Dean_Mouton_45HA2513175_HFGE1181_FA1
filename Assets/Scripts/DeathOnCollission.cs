@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class DeathOnCollission : MonoBehaviour
 {
     private string sceneName;
+    public GameObject losescreen;
     private void Start()
     {
         sceneName = SceneManager.GetActiveScene().name;
@@ -14,6 +15,7 @@ public class DeathOnCollission : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            losescreen.SetActive(true);
             SceneManager.LoadScene(sceneName);
             //Time.timeScale = 0;
         }
