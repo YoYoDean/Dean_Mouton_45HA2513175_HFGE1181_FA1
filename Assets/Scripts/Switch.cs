@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class Switch : MonoBehaviour
     private bool isActive;
     [SerializeField]
     private GameObject hidingObject;
+    public GameObject eTXT;
 
     private bool canInteract = false;
 
@@ -40,9 +42,12 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("Entered");
         if (col.gameObject.tag == "Player")
         {
+            Debug.Log("CanInter true");
             canInteract = true;
+            eTXT.SetActive(true);
         }
     }
 
@@ -50,7 +55,9 @@ public class Switch : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            canInteract = false ;
+            Debug.Log("CanInter false");
+            canInteract = false;
+            eTXT.SetActive(false);
         }
     }
 }

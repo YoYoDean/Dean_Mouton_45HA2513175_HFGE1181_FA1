@@ -5,6 +5,8 @@ public class HealthManager : MonoBehaviour
 {
     public static HealthManager Instance;
     private HealthSystem healthSystem;
+
+    private GameMNGR gameMNGR;
     private string sceneName;
 
     private void Awake()
@@ -36,6 +38,7 @@ public class HealthManager : MonoBehaviour
     {
         if (healthSystem.GetHearts() < 0)
         {
+            
             SceneManager.LoadScene(sceneName);
         }
         

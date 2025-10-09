@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1728532547923987628}
   - component: {fileID: 1168996691548973739}
-  - component: {fileID: 8014013723343326947}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -80,22 +79,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.80830026}
   m_EdgeRadius: 0
---- !u!114 &8014013723343326947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2346559269858734096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01aa58efda25a445a49a862b27c2bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathMessages:
-  - You were impaled on spikes
-  - Prickly business
-  - Could have sworn you looked less like a cactus
 --- !u!1 &3206465405145507610
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +131,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -169,6 +154,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
